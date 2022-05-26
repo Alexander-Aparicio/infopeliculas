@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import { DataContext } from "../context/DataContext"
 import GetFilms from "../helpers/fetch"
+import getMusic from "../helpers/fetchSongs"
 import Card from "./Card"   
 import SearchFilms from "./SearchFilm"
 
@@ -15,6 +16,7 @@ const MainContainer = ()=>{
 
     useEffect(()=>{
         GetFilms(`${data}`).then((res)=> setFilms(res))
+        getMusic()
     },[data])
 
     return (
